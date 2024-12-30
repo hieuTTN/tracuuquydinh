@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm tài Khoản</title>
+    <head th:replace="common/libadmin :: libheaderadmin"></head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body class="sb-nav-fixed">
+<div th:replace="common/navbarAdmin :: headerAdmin"></div>
+<div id="layoutSidenav">
+    <div th:replace="common/navbarAdmin :: sidenavAdmin"></div>
+    <div id="layoutSidenav_content">
+        <main class="main">
+            <div class="title-add-admin">
+                <p>Thêm/ cập nhật tài khoản</p>
+            </div>
+            <form method="post" action="adduser" th:object="${user}">
+                <div class="col-sm-5">
+                    <label class="lb-form">Email</label>
+                    <input th:field="*{id}" type="hidden" class="form-control">
+                    <input th:field="*{email}" type="text" class="form-control">
+                    <label class="lb-form">Họ tên</label>
+                    <input th:field="*{fullName}" type="text" class="form-control">
+                    <label class="lb-form">Số điện thoại</label>
+                    <input th:field="*{phone}" type="text" class="form-control">
+                    <label class="lb-form">Quyền</label>
+                    <select class="form-control" th:field="*{role}">
+                        <option value="ROLE_ADMIN">ADMIN</option>
+                        <option value="ROLE_STUDENT">Sinh viên</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-primary form-control">Thêm/ cập nhật</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

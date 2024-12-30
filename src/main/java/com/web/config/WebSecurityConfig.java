@@ -44,8 +44,7 @@ public class WebSecurityConfig  {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/gio-hang").hasAuthority("ROLE_USER")
-                        .requestMatchers("/checkout").hasAuthority("ROLE_USER")
+                        .requestMatchers("/*/admin/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form

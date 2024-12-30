@@ -58,7 +58,7 @@ public class RegisController {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setActived(false);
         user.setActivationKey(userUtils.randomKey());
-        user.setRole(Role.ROLE_USER);
+        user.setRole(Role.ROLE_STUDENT);
         user.setCreatedDate(new Date(System.currentTimeMillis()));
         User result = userRepository.save(user);
         mailService.sendEmail(user.getEmail(), "Xác nhận tài khoản của bạn","Cảm ơn bạn đã tin tưởng và xử dụng dịch vụ của chúng tôi:<br>" +

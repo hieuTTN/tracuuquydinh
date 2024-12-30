@@ -1,5 +1,6 @@
 package com.web.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +20,6 @@ public class RegulationCategory {
     private Category category;
 
     @ManyToOne
+    @JsonBackReference
     private Regulation regulation;
 }

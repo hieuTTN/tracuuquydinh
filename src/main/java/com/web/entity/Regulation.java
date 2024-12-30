@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "regulation")
@@ -25,8 +27,16 @@ public class Regulation {
 
     private LocalDateTime createdDate;
 
+    private LocalDateTime updatedDate;
+
     private String linkFile;
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Department department;
+
+    @OneToMany(mappedBy = "regulation", cascade = CascadeType.REMOVE)
+    private List<RegulationCategory> regulationCategories = new ArrayList<>();
 }

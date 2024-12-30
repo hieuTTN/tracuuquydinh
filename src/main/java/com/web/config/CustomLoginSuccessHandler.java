@@ -29,11 +29,11 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
         String email = authentication.getName();
 
         Optional<User> user = userRepository.findByEmail(email);
-        if(user.get().getRole().equals(Role.ROLE_USER)){
+        if(user.get().getRole().equals(Role.ROLE_STUDENT)){
             response.sendRedirect("/");
         }
         if(user.get().getRole().equals(Role.ROLE_ADMIN)){
-            response.sendRedirect("/admin/index");
+            response.sendRedirect("/admin/tai-khoan");
         }
     }
 }

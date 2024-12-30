@@ -16,16 +16,17 @@
                 <div class="col-sm-12 header-sp">
                     <form class="row">
                         <div class="col-md-3 col-sm-6 col-6">
-                            <label class="lb-form" th:text="${param.role}">Chọn quyền</label>
                             <select name="role" id="role" class="form-control">
                                 <option value="">Tất cả quyền</option>
-                                <option value="ROLE_USER" th:selected="${param.role != null and param.role[0] == 'ROLE_USER'}">Tài khoản người dùng</option>
+                                <option value="ROLE_STUDENT" th:selected="${param.role != null and param.role[0] == 'ROLE_STUDENT'}">Tài khoản sinh viên</option>
                                 <option value="ROLE_ADMIN" th:selected="${param.role != null and param.role[0] == 'ROLE_ADMIN'}">Tài khoản admin</option>
                             </select>
                         </div>
                         <div class="col-md-2 col-sm-6 col-6">
-                            <label class="lb-form">&ThinSpace;</label>
-                            <button class="btn btn-primary form-control">Lọc</button>
+                            <button class="btn btn-primary form-control"><i class="fa fa-filter"></i> Lọc</button>
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-6">
+                            <a href="adduser" class="btn btn-primary form-control"><i class="fa fa-plus"></i> Thêm tài khoản</a>
                         </div>
                     </form>
                 </div>
@@ -40,7 +41,7 @@
                                     <th>Số điện thoại</th>
                                     <th>Ngày tạo</th>
                                     <th>Quyền</th>
-                                    <th class="sticky-col">Khóa</th>
+                                    <th class="sticky-col">Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody id="listuser">
@@ -51,12 +52,14 @@
                                     <td th:text="${u.phone}"></td>
                                     <td th:text="${u.createdDate}"></td>
                                     <td th:text="${u.role}"></td>
-                                    <td>
+                                    <td class="d-flex">
                                         <form method="post" action="lockOrUnlockUser">
                                             <input type="hidden" name="id" th:value="${u.id}">
                                             <button th:class="${u.actived == true?'btn btn-primary':'btn btn-danger'}"
-                                            th:text="${u.actived == true?'Khóa':'Mở khóa'}"></button>
+                                            th:utext="${u.actived == true?'<i class=''fa fa-unlock''></i>':'<i class=''fa fa-lock''></i>'}"></button>
                                         </form>
+                                        <a class="delete-btn" th:href="@{deleteuser(id=${u.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?');"><i class="fa fa-trash" ></i></a>
+                                        <a class="edit-btn" th:href="@{adduser(id=${u.id})}" ><i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -67,30 +70,7 @@
         </div>
     </div>
 
-    <div class="modal" id="addtk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thêm tài khoản quản trị</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                <div class="modal-body row">
-                    <form action="javascript:addAdmin()" class="col-sm-6" style="margin: auto;">
-                        <label class="lb-form">Họ tên</label>
-                        <input id="fullname" class="form-control">
-                        <label class="lb-form">Số điện thoại</label>
-                        <input id="phone" class="form-control">
-                        <label class="lb-form">Email</label>
-                        <input required id="email" class="form-control">
-                        <label class="lb-form">Mật khẩu</label>
-                        <input required id="pass" type="password" class="form-control">
-                        <label class="lb-form">Nhắc lại mật khẩu</label>
-                        <input required id="repass" type="password" class="form-control">
-                        <br>
-                        <button class="form-control btn btn-primary">Thêm tài khoản</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </body>
 <script>
     $('#example').DataTable();
