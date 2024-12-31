@@ -50,15 +50,8 @@ public class MessageController {
         chatRepository.save(chatting);
         Map<String, Object> map = new HashMap<>();
         map.put("sender", sender.getId());
-//        if(reciver == null){
-//            List<User> list = userRepository.getUserByRole(Contains.ROLE_ADMIN);
-//            for (User user : list) {
-//                simpMessagingTemplate.convertAndSendToUser(user.getUsername(), "/queue/messages", message,map);
-//            }
-//        }
-//        else{
-//            simpMessagingTemplate.convertAndSendToUser(reciver.getUsername(), "/queue/messages", message,map);
-//        }
+        map.put("mailsender", sender.getEmail());
+        simpMessagingTemplate.convertAndSendToUser(reciver.getEmail(), "/queue/messages", message,map);
     }
 
 }

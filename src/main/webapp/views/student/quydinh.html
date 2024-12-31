@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quy định</title>
+    <head th:replace="common/libadmin :: libheaderadmin"></head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="/js/quydinh.js"></script>
+    <script>
+        window.onload = function (){
+            loadQuyDinh(0);
+        }
+    </script>
+</head>
+
+<body class="sb-nav-fixed">
+<div th:replace="common/navbarStudent :: headerStudent"></div>
+<div id="layoutSidenav">
+    <div th:replace="common/navbarStudent :: sidenavStudent"></div>
+    <div id="layoutSidenav_content">
+        <main class="main">
+            <div class="col-sm-12 header-sp">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <select class="form-control" id="listdanhmuc" multiple>
+                            <option th:each="k : ${categoryList}" th:value="${k.id}" th:text="${k.name}"></option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="listkhoa">
+                            <option th:each="k : ${phongbanList}" th:value="${k.id}" th:text="${k.name}"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-sm-6 col-6">
+                        <button onclick="loadQuyDinh()" class="btn btn-primary form-control"><i class="fa fa-plus"></i> Lọc quy định</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="listquydinh">
+<!--                <div class="col-sm-3">-->
+<!--                    <div class="singlequydinh">-->
+<!--                        <img src="" class="imgquydinhstudent">-->
+<!--                        <div class="noidungquydinh">-->
+<!--                            <i class="fa fa-calendar"></i> 093/27-->
+<!--                            <p class="tieudequydinh">ten</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+            <nav aria-label="Page navigation example" style="margin-top: 30px;">
+                <ul class="pagination" id="pageable">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                </ul>
+            </nav>
+        </main>
+    </div>
+
+    <div class="modal fade" id="themdanhmuc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Nội dung quy định</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body">
+                    <div id="noidungquydinh">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="linktaifile" download="download"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    const ser = $("#listdanhmuc");
+    ser.select2({
+        placeholder: "Chọn danh mục tìm kiếm",
+    });
+    const ser1 = $("#listkhoa");
+    ser1.select2({
+        placeholder: "Chọn khoa tìm kiếm",
+    });
+</script>
+</html>

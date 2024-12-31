@@ -12678,3 +12678,205 @@ label {
 .toast-success .toast-close-button {
     color: white !important;
 }
+
+.loaiquydinh{
+    display: block;
+    background-color: #b8b8b8;
+    margin-top: 5px;
+    padding: 3px 5px;
+    font-size: 11px;
+    border-radius: 5px;
+}
+
+.select2-container .select2-selection--multiple {
+    height: auto;
+    min-height: calc(2.25rem + 2px); /* Chiều cao như form-control */
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+.select2-container .select2-selection--single {
+    height: calc(2.25rem + 2px); /* Chiều cao như form-control */
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    color: #495057;
+    line-height: 2rem; /* Canh giữa nội dung */
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 100%; /* Mũi tên canh giữa */
+    top: 0;
+    right: 10px;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #e9ecef; /* Highlight khi chọn */
+    color: #495057;
+}
+
+
+.imgquydinhstudent{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.noidungquydinh{
+    padding: 10px;
+    height: 200px;
+}
+.iconlich{
+    color: red;
+}
+.tieudequydinh{
+    font-size: 18px;
+    font-weight: 500;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.singlequydinh{
+    -webkit-box-shadow: 0 0 10px #bababa;
+    box-shadow: 0 0 10px #bababa;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.danhmucquydinh{
+    font-size: 12px;
+    margin-left: 8px;
+    background-color: #969696;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+.listdanhmucquydinh{
+    margin-top: 10px;
+    min-height: 10px;
+    padding-bottom: 10px;
+}
+#noidungquydinh{
+    height: 400px;
+    overflow: scroll;
+}
+
+
+#listuserchat{
+    /*height: 200px;*/
+    overflow: scroll;
+}
+
+.imgavatarchat{
+    aspect-ratio: 1 / 1;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.col45{
+    width: 40px !important;
+}
+.trhoverchat{
+    background-color: #e8e8e8;
+    border-radius: 8px !important;
+    padding: 5px;
+}
+.timechat{
+    color: gray;
+    font-size: 12px;
+    display: block;
+}
+.header-chat-admin{
+    background-color: #bdbdbd;
+    margin-top: 10px;
+    background-color: gray !important;
+    border-radius: 0px !important;
+    color: #fff !important;
+}
+.mainchatadmin{
+    position: relative;
+}
+.contentchatadmin{
+    height: 70vh;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+    border: 1px solid #d1d1d1;
+    border-top: 0px;
+}
+.chat-area-footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.inputchatadmin{
+    width: 90%;
+    float: left;
+    border-radius: 5px;
+    padding: 3px 10px;
+    height: 40px;
+    border: 1px solid #d1d1d1;
+}
+.btn-send-message{
+    width: 8%;
+    margin-left: 2%;
+    height: 40px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+}
+#listchatadmin {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+.adminchat{
+    background-color: #0084ff;
+    color: #fff;
+    max-width: 70%;
+    padding: 3px 7px;
+    border-radius: 10px;
+    display: inline-block;
+    align-self: flex-end;
+}
+.mychat{
+    background-color: #f0f0f0;
+    max-width: 70%;
+    padding: 3px 7px;
+    border-radius: 10px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+
+
+
+
+.imgavatarchat{
+    aspect-ratio: 1 / 1;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.emailchat{
+    font-size: 13px;
+}

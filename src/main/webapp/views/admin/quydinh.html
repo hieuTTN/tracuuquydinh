@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Tài Khoản</title>
+    <title>Quy định</title>
     <head th:replace="common/libadmin :: libheaderadmin"></head>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
@@ -22,8 +22,8 @@
             </div>
             <div class="col-sm-12">
                 <div class="wrapper">
-                    <table id="example" class="table table-striped tablefix">
-                        <thead class="thead-tablefix">
+                    <table id="example" class="table">
+                        <thead>
                         <tr>
                             <th>id</th>
                             <th>Ảnh</th>
@@ -32,6 +32,7 @@
                             <th>Ngày cập nhật</th>
                             <th>Người tạo</th>
                             <th>Phạm vi</th>
+                            <th>Loại</th>
                             <th class="sticky-col">Chức năng</th>
                         </tr>
                         </thead>
@@ -44,7 +45,12 @@
                             <td th:text="${u.updatedDate}"></td>
                             <td th:text="${u.user.fullName}"></td>
                             <td th:text="${u.department.name}"></td>
-                            <td class="d-flex">
+                            <td>
+                                <span th:each="c : ${u.regulationCategories}">
+                                    <span class="loaiquydinh" th:text="${c.category.name}"></span>
+                                </span>
+                            </td>
+                            <td>
                                 <a class="delete-btn" th:href="@{deletequydinh(id=${u.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?');"><i class="fa fa-trash" ></i></a>
                                 <a class="edit-btn" th:href="@{addquydinh(id=${u.id})}" ><i class="fa fa-edit"></i></a>
                             </td>

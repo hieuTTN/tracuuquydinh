@@ -31,7 +31,7 @@
                     <div class="sb-nav-link-icon"><i class="fa fa-newspaper iconmenu"></i></div>
                     Quản lý quy định
                 </a>
-                <a class="nav-link" href="doanhthu">
+                <a class="nav-link" href="chat">
                     <div class="sb-nav-link-icon"><i class="fa fa-comment iconmenu"></i></div>
                     Tin nhắn
                 </a>
@@ -60,6 +60,11 @@
             if(warning != null){
                 toastr.warning(warning);
             }
+
+            $( document ).ready(function() {
+                const user = /*[[${myuser}]]*/ null;
+                connect(user.email);
+            });
         </script>
     </nav>
 </div>

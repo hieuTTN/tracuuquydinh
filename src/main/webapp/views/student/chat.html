@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Tin nhắn</title>
+  <head th:replace="common/libadmin :: libheaderadmin"></head>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <script src="/js/chat.js"></script>
+  <script>
+    window.onload = function (){
+      loadAllAdmin();
+      loadTinNhan();
+    }
+  </script>
+</head>
+
+<body class="sb-nav-fixed">
+<div th:replace="common/navbarStudent :: headerStudent"></div>
+<div id="layoutSidenav">
+  <div th:replace="common/navbarStudent :: sidenavStudent"></div>
+  <div id="layoutSidenav_content">
+    <main class="main">
+      <div class="row">
+        <div class="col-sm-3">
+          <table class="table table-borderless" id="tableuserchat">
+            <thead>
+            <tr>
+              <td colspan="2">
+                <input onkeyup="loadAllAdmin()" id="keysearchuser" class="form-control" type="text" placeholder="Tìm kiếm">
+              </td>
+            </tr>
+            </thead>
+            <tbody id="listuserchat">
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-9">
+          <div class="mainchatadmin" id="mainchatadmin">
+            <div class="header-chat-admin form-control">
+              Trần Văn Hiếu
+            </div>
+            <div class="contentchatadmin" id="listchatadmin">
+
+            </div>
+            <div style="height: 50px;"></div>
+            <div class="chat-area-footer">
+              <input type="text" id="contentmess" class="inputchatadmin" placeholder="write message" />
+              <button class="btn-send-message" id="sendmess"><i class="fa fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "users")
@@ -35,4 +36,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Transient
+    private Timestamp lastChatTime;
 }

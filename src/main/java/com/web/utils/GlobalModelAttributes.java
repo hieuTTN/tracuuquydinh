@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 @ControllerAdvice
 public class GlobalModelAttributes {
 
-
     @Autowired
     private UserUtils userUtils;
 

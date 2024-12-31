@@ -1,6 +1,8 @@
 package com.web.api;
 
 import com.web.dto.RegulationDto;
+import com.web.dto.RegulationSearch;
+import com.web.dto.RegulationSpecification;
 import com.web.entity.Category;
 import com.web.entity.Regulation;
 import com.web.entity.RegulationCategory;
@@ -10,6 +12,8 @@ import com.web.repository.RegulationCategoryRepository;
 import com.web.repository.RegulationRepository;
 import com.web.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -64,4 +68,10 @@ public class RegulationApi {
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
+    @PostMapping("/student/search-full-quydinh")
+    public ResponseEntity<?> searchFull(@RequestBody RegulationSearch search, Pageable pageable){
+        RegulationSpecification regulationSpecification = new RegulationSpecification(search.getCategoryIds(), search.getDepartmentIds());
+        Page<Regulation> result = regulationRepository.findAll(regulationSpecification, pageable);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
+    }
 }
