@@ -8,7 +8,7 @@ async function loadAllAdmin() {
     var main = '';
     for (i = 0; i < list.length; i++) {
         main += `
-            <tr onclick="chuyenTrang(${list[i].id})" class="pointer">
+            <tr onclick="chuyenTrang(${list[i].id}, '${list[i].email}','${list[i].fullName}')" class="pointer">
                 <td><div class="${list[i].id == id?'trhoverchat':''}">
                     ${list[i].fullName} <span class="emailchat">(${list[i].email})</span>
                     <span class="timechat">${formatLocalDateTime(list[i].lastChatTime)}</span>
@@ -79,19 +79,22 @@ function appendRecivers (message) {
 }
 
 
-function chuyenTrang(iduser){
+function chuyenTrang(iduser, email, name){
     var uls = new URL(document.URL)
     var userid = uls.searchParams.get("user");
     if(userid == iduser){
         return;
     }
-    window.location.href = 'chat?user='+iduser;
+    window.location.href = 'chat?user='+iduser+'&email='+email+'&name='+name;
 }
 
 
 async function loadTinNhan(){
     var uls = new URL(document.URL)
     var userid = uls.searchParams.get("user");
+    var mail = uls.searchParams.get("email");
+    var name = uls.searchParams.get("name");
+    document.getElementById("hotenuser").innerHTML = name +' (' +mail+')'
     if(userid == null){
         document.getElementById("mainchatadmin").style.display = "none";
         return;
